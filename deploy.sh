@@ -219,7 +219,7 @@ The recommended scheduler name is 'analytics-settings-downloader': [analytics-se
 scheduler_name=${scheduler_name:-analytics-settings-downloader}
   echo "A cloud scheduler will now be created that runs daily at 11 PM."
 	echo "~~~~~~~~ Creating Cloud Scheduler ~~~~~~~~~~"
-	function_uri=$(gcloud functions describe $function_name --format="value(httpsTrigger.url)")
+	function_uri=$(gcloud functions describe $function_name --format="value(serviceConfig.uri)")
 	echo $function_uri
 	if create_cloud_scheduler; then
     echo "Cloud scheduler created."
