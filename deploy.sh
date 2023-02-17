@@ -26,8 +26,8 @@ END
 read -p "Please enter your Google Cloud Project ID: " project_id
 read -p "Please enter the region to use for deployment: [europe-west1] " selected_region
 selected_region=${selected_region:-europe-west1}
-echo $selected_region
 gcloud config set functions/region $selected_region
+echo "gcloud config functions/region is set to: " $selected_region
 
 echo "~~~~~~~~ Enabling APIs ~~~~~~~~~~"
 gcloud services enable \
@@ -69,7 +69,8 @@ set_service_account_iam_policy () {
 service_account_setup () {
   read -p "Please enter you desired service account name with no spaces.
 This service account will be used by your Cloud Function.
-The recommended name is 'ga-database' : " service_account_name
+The recommended name is 'ga-database' : [ga-database]" service_account_name
+service_account_name=${service_account_name:-ga-database}
   echo "~~~~~~~~ Creating Service Account ~~~~~~~~~~"
   if create_service_account; then
     service_account_email="$service_account_name@$project_id.iam.gserviceaccount.com"
@@ -109,7 +110,8 @@ create_cloud_function () {
 
 cloud_function_setup () {
 	read -p "Please enter your desired Function name. The recommended
-function name is 'analytics-settings-downloader': " function_name
+function name is 'analytics-settings-downloader': [analytics-settings-downloader]" function_name
+function_name=${function_name:-analytics-settings-downloader}
   cd settings_downloader_function
   echo "~~~~~~~~ Creating Function ~~~~~~~~~~"
 	if create_cloud_function; then
@@ -213,7 +215,8 @@ create_cloud_scheduler () {
 
 cloud_scheduler_setup () {
 	read -p "Please enter your desired Cloud Scheduler name.
-The recommended scheduler name is 'analytics-settings-downloader': " scheduler_name
+The recommended scheduler name is 'analytics-settings-downloader': [analytics-settings-downloader]" scheduler_name
+scheduler_name=${scheduler_name:-analytics-settings-downloader}
   echo "A cloud scheduler will now be created that runs daily at 11 PM."
 	echo "~~~~~~~~ Creating Cloud Scheduler ~~~~~~~~~~"
 	function_uri=$(gcloud functions describe $function_name --format="value(httpsTrigger.url)")
