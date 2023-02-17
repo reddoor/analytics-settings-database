@@ -104,7 +104,7 @@ create_cloud_function () {
 
 cloud_function_setup () {
 	read -p "Please enter your desired Function name. The recommended
-function name is 'analytics_settings_downloader': " function_name
+function name is 'analytics-settings-downloader': " function_name
   cd settings_downloader_function
   echo "~~~~~~~~ Creating Function ~~~~~~~~~~"
 	if create_cloud_function; then
@@ -208,7 +208,7 @@ create_cloud_scheduler () {
 
 cloud_scheduler_setup () {
 	read -p "Please enter your desired Cloud Scheduler name.
-The recommended scheduler name is 'analytics_settings_downloader': " scheduler_name
+The recommended scheduler name is 'analytics-settings-downloader': " scheduler_name
   echo "A cloud scheduler will now be created that runs daily at 11 PM."
 	echo "~~~~~~~~ Creating Cloud Scheduler ~~~~~~~~~~"
 	function_uri=$(gcloud functions describe $function_name --format="value(httpsTrigger.url)")
