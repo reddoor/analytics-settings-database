@@ -31,12 +31,9 @@ cloudfunctions.googleapis.com \
 storage-component.googleapis.com \
 bigquery.googleapis.com \
 cloudscheduler.googleapis.com \
-appengine.googleapis.com \
 analytics.googleapis.com \
 analyticsadmin.googleapis.com \
 --async
-
-gcloud app create
 
 exit_setup () {
   exit "Exiting Google Analytics Settings Database setup. Setup failed."
@@ -216,9 +213,6 @@ The recommended scheduler name is 'analytics_settings_downloader': " scheduler_n
 	echo "~~~~~~~~ Creating Cloud Scheduler ~~~~~~~~~~"
 	function_uri=$(gcloud functions describe $function_name --format="value(httpsTrigger.url)")
 	echo $function_uri
-  if gcloud app browse; then
-    gcloud app create
-  fi
 	if create_cloud_scheduler; then
     echo "Cloud scheduler created."
   else
