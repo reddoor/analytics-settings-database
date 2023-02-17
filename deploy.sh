@@ -24,6 +24,11 @@ cat <<END
 ***************************
 END
 read -p "Please enter your Google Cloud Project ID: " project_id
+read -p "Please enter the region to use for deployment: [europe-west1] " selected_region
+selected_region=${selected_region:-europe-west1}
+echo $selected_region
+gcloud config set functions/region $selected_region
+
 echo "~~~~~~~~ Enabling APIs ~~~~~~~~~~"
 gcloud services enable \
 cloudbuild.googleapis.com \
