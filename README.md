@@ -1,5 +1,9 @@
 ## Google Analytics Settings Database
 
+This script was cloned from [ivan-toriya-precis](https://github.com/Precis-Digital/analytics-settings-database) which is a fork from the original script by [b-kuehn](https://github.com/google/analytics-settings-database).
+
+This version fixes issues we experienced and includes more details in the README.md 
+
 This is not an officially supported Google product.
 
 This repository contains code for a Google Cloud Function that loads Universal Google Analytics and Google Analytics 4 settings into a set of BigQuery tables. By default, the function is scheduled to run daily. This creates a daily backup of Google Analytics settings that can be used for a variety of purposes, including restoring settings, auditing setups, and having an extensive change history across accounts.
