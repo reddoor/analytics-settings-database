@@ -4,6 +4,10 @@ This script was cloned from [ivan-toriya-precis](https://github.com/Precis-Digit
 
 This version fixes issues we experienced and includes more details in the README.md 
 
+The remainder of this README.md file is from the original script with modifications to clarify steps when using Cloud Run.
+
+------------
+
 This is not an officially supported Google product.
 
 This repository contains code for a Google Cloud Function that loads Universal Google Analytics and Google Analytics 4 settings into a set of BigQuery tables. By default, the function is scheduled to run daily. This creates a daily backup of Google Analytics settings that can be used for a variety of purposes, including restoring settings, auditing setups, and having an extensive change history across accounts.
