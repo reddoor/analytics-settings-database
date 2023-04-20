@@ -31,7 +31,7 @@ This repository contains code for a Google Cloud Function that loads Universal G
 
 ```
 
-rm -rf analytics-settings-database && git clone https://github.com/Precis-Digital/analytics-settings-database.git && cd analytics-settings-database && bash deploy.sh
+rm -rf analytics-settings-database && git clone https://github.com/reddoor/analytics-settings-database.git && cd analytics-settings-database && bash deploy.sh
 
 ```
 
