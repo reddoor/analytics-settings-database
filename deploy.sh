@@ -135,6 +135,14 @@ bq mk -d $project_id:analytics_settings_database
 echo "~~~~~~~~ Creating BigQuery Tables ~~~~~~~~~~"
 cd schemas
 bq mk -t --time_partitioning_type=DAY \
+	--schema=./ua_accounts_schema.json \
+	$project_id:analytics_settings_database.ua_accounts
+
+bq mk -t --time_partitioning_type=DAY \
+	--schema=./ua_google_ads_links_schema.json \
+	$project_id:analytics_settings_database.ua_google_ads_links	
+
+bq mk -t --time_partitioning_type=DAY \
 	--schema=./ua_account_summaries_schema.json \
 	$project_id:analytics_settings_database.ua_account_summaries
 bq mk -t --time_partitioning_type=DAY \
