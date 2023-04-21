@@ -11,16 +11,16 @@
         "name": "property",
         "type": "STRING"
       },
-		  {
-		    "mode":"NULLABLE",
-		    "name":"parent",
-		    "type":"STRING"
-		  },
-		  {
-		    "mode":"NULLABLE",
-		    "name":"property_type",
-		    "type":"STRING"
-		  }
+      {
+        "mode": "NULLABLE",
+        "name": "parent",
+        "type": "STRING"
+      },
+      {
+        "mode": "NULLABLE",
+        "name": "property_type",
+        "type": "STRING"
+      }
     ],
     "mode": "REPEATED",
     "name": "property_summaries",
