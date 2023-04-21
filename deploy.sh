@@ -24,8 +24,8 @@ cat <<END
 ***************************
 END
 read -p "Please enter your Google Cloud Project ID: " project_id
-read -p "Please enter the region to use for deployment: [europe-west1] " selected_region
-selected_region=${selected_region:-europe-west1}
+read -p "Please enter the region to use for deployment: [us-central1] " selected_region
+selected_region=${selected_region:-us-central1}
 gcloud config set functions/region $selected_region
 echo "gcloud config functions/region is set to: " $selected_region
 
@@ -137,11 +137,9 @@ cd schemas
 bq mk -t --time_partitioning_type=DAY \
 	--schema=./ua_accounts_schema.json \
 	$project_id:analytics_settings_database.ua_accounts
-
 bq mk -t --time_partitioning_type=DAY \
 	--schema=./ua_google_ads_links_schema.json \
 	$project_id:analytics_settings_database.ua_google_ads_links	
-
 bq mk -t --time_partitioning_type=DAY \
 	--schema=./ua_account_summaries_schema.json \
 	$project_id:analytics_settings_database.ua_account_summaries
