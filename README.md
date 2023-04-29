@@ -74,9 +74,10 @@ Upon completing the implementation process, the settings for your Google Analyti
 ## Start over (in case of error)
 This is a list of items that must be removed if you encounter an error along the way and you want to start over (in no particular order). 
 
-1. Cloud Function - Navigate to `Cloud Functions` and delete the function you just created
-2. Big Query Data Set - Navigate to Big Query => SQL Workspace and delete the data set you just created
-3. IAM user - Navigate to IAM and remove the user you just created 
+1. **Cloud Function** - Navigate to `Cloud Functions` and delete the function you just created.
+2. **Big Query Data Set** - Navigate to Big Query => SQL Workspace and delete the data set you just created.
+3. **IAM Service Account** - Navigate to IAM and remove the `Service Account` you just created. It has the name `ga-database`. 
+4. **Directory** - Within Cloud Shell remove the directory you just created using this snippet `rm -rf analytics-settings-database`. Note: this step is not really required since it's included in the script above.  
 
 ## (Optional) Deploy Health Checkup Table
 

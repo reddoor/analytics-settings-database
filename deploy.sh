@@ -216,7 +216,8 @@ create_cloud_scheduler () {
   	--http-method=GET \
   	--oidc-service-account-email=$service_account_email \
     --oidc-token-audience=$function_uri \
-    --project=$project_id
+    --project=$project_id \
+	--region=us-central1 
 }
 
 cloud_scheduler_setup () {
