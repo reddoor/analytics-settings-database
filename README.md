@@ -71,6 +71,12 @@ rm -rf analytics-settings-database && git clone https://github.com/reddoor/analy
 
 Upon completing the implementation process, the settings for your Google Analytics accounts that the API can access will be loaded into BigQuery daily at 11 PM. The frequency with which this happens can be adjusted by modifying the Cloud Scheduler Job created during the deployment process.
 
+## In case of error
+This is a list of items that must be removed if you encounter an error along the way (in no particular order). 
+
+1. Cloud Function - Navigate to `Cloud Functions` and delete the function you just created
+2. Big Query Data Set - Navigate to Big Query => SQL Workspace and delete the data set you just created
+3. IAM user - Navigate to IAM and remove the user you just created 
 
 ## (Optional) Deploy Health Checkup Table
 
