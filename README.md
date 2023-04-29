@@ -37,8 +37,11 @@ rm -rf analytics-settings-database && git clone https://github.com/reddoor/analy
 
 
 
-3. Enter the information when prompted during the deployment process. When asked if unauthenticated invocations should be allowed for the Cloud Function, answer no.
-4. This will create the following:
+3. Enter the information when prompted during the deployment process. 
+
+4. When asked if unauthenticated invocations should be allowed for the Cloud Function, answer `no`.
+
+5. This will create the following:
     *   A Cloud Function (2nd gen)
     *   A Cloud Scheduler Job
     *   A BigQuery dataset with the name “analytics\_settings\_database”
@@ -67,7 +70,7 @@ rm -rf analytics-settings-database && git clone https://github.com/reddoor/analy
         *   ua\_goals
         *   ua\_segments
         *   ua\_views
-5. Add the service account email generated during the deployment process to your Google Analytics accounts.
+6. Add the service account email generated during the deployment process to your Google Analytics accounts and (*IMPORTANT*) set the role to **Administrator**.
 
 Upon completing the implementation process, the settings for your Google Analytics accounts that the API can access will be loaded into BigQuery daily at 11 PM. The frequency with which this happens can be adjusted by modifying the Cloud Scheduler Job created during the deployment process.
 
@@ -75,7 +78,7 @@ Upon completing the implementation process, the settings for your Google Analyti
 This is a list of items that must be removed if you encounter an error along the way and you want to start over (in no particular order). 
 
 1. **Cloud Function** - Navigate to `Cloud Functions` and delete the function you just created.
-2. **Big Query Data Set** - Navigate to Big Query => SQL Workspace and delete the data set you just created.
+2. **Big Query DataSet** - Navigate to Big Query => SQL Workspace and delete the dataset you just created.
 3. **IAM Service Account** - Navigate to IAM and remove the `Service Account` you just created. It has the name `ga-database`. 
 4. **Cloud Run** - Navigate to `Cloud Run` and delete the Cloud Run that you just created (entitled `analytics-settings-downloader`)
 5. **Directory** - Within Cloud Shell remove the directory you just created using this snippet `rm -rf analytics-settings-database`. Note: this step is not really required since it's included in the script above.  
