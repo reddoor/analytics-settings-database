@@ -77,7 +77,8 @@ This is a list of items that must be removed if you encounter an error along the
 1. **Cloud Function** - Navigate to `Cloud Functions` and delete the function you just created.
 2. **Big Query Data Set** - Navigate to Big Query => SQL Workspace and delete the data set you just created.
 3. **IAM Service Account** - Navigate to IAM and remove the `Service Account` you just created. It has the name `ga-database`. 
-4. **Directory** - Within Cloud Shell remove the directory you just created using this snippet `rm -rf analytics-settings-database`. Note: this step is not really required since it's included in the script above.  
+4. **Cloud Run** - Navigate to `Cloud Run` and delete the Cloud Run that you just created (entitled `analytics-settings-downloader`)
+5. **Directory** - Within Cloud Shell remove the directory you just created using this snippet `rm -rf analytics-settings-database`. Note: this step is not really required since it's included in the script above.  
 
 ## (Optional) Deploy Health Checkup Table
 
